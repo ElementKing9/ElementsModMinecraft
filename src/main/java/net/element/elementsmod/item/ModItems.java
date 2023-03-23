@@ -1,6 +1,7 @@
 package net.element.elementsmod.item;
 
 import net.element.elementsmod.ElementsMod;
+import net.element.elementsmod.item.custom.AspectOfTheEndItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
 
-    public static final Item ASPECT_OF_THE_END = registerItem("aspect_of_the_end", new Item(new FabricItemSettings()));
+    public static final Item ASPECT_OF_THE_END = registerItem("aspect_of_the_end", new AspectOfTheEndItem(new FabricItemSettings().maxCount(1)));
     public static final Item ENDER_INGOT = registerItem("ender_ingot", new Item(new FabricItemSettings()));
 
 
