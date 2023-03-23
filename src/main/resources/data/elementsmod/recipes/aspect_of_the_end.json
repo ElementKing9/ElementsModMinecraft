@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " %#",
+    "$#%",
+    "|$ "
+  ],
+  "key": {
+    "#": {
+      "item": "elementsmod:ender_ingot"
+    },
+    "%": {
+      "item": "minecraft:diamond"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "elementsmod:aspect_of_the_end"
+  }
+}

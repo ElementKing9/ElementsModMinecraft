@@ -12,6 +12,7 @@ public class ModItems {
 
 
     public static final Item ASPECT_OF_THE_END = registerItem("aspect_of_the_end", new Item(new FabricItemSettings()));
+    public static final Item ENDER_INGOT = registerItem("ender_ingot", new Item(new FabricItemSettings()));
 
 
     private static Item registerItem(String name, Item item) {
