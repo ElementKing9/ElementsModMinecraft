@@ -10,13 +10,13 @@
       "item": "elementsmod:ender_ingot"
     },
     "%": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:diamond_block"
     },
     "|": {
       "item": "minecraft:stick"
     },
     "$": {
-      "item": "minecraft:gold_ingot"
+      "item": "minecraft:gold_block"
     }
   },
   "result": {
