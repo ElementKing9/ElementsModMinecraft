@@ -28,7 +28,8 @@ public class AspectOfTheEndItem extends SwordItem {
         int y = blockPos.getY();
         int z = blockPos.getZ();
 
-        context.getPlayer().teleport(x,y,z);
+        //teleporting the player one block above the block's location as otherwise the player ends up inside the block
+        context.getPlayer().teleport(x, y+1 ,z);
 
         context.getPlayer().getItemCooldownManager().set(this, 120);
 
