@@ -4,13 +4,17 @@ package net.element.elementsmod.item.custom;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
 
 public class AspectOfTheEndItem extends SwordItem {
@@ -18,20 +22,21 @@ public class AspectOfTheEndItem extends SwordItem {
         super(material, attackDamage, attackSpeed, settings);
     }
 
+    public ActionResult UseOnBlock(ItemUsageContext context) {
+        return super.useOnBlock(context);
+    }
+
+
+
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        if(context.getPlayer().isSpectator() || context.getWorld().isClient()) return ActionResult.PASS;
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(!world.isClient() && hand == Hand.MAIN_HAND) {
+            user.sendMessage(Text.of("Some Code Working"));
+            //user.teleport();
+            user.getItemCooldownManager().set(this, 120);
+        }
 
-        BlockPos blockPos = context.getBlockPos();
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-
-        context.getPlayer().teleport(x,y,z);
-
-        context.getPlayer().getItemCooldownManager().set(this, 120);
-
-        return ActionResult.SUCCESS;
+        return super.use(world, user, hand);
     }
 
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
