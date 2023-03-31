@@ -5,7 +5,6 @@ import net.element.elementsmod.item.custom.AspectOfTheEndItem;
 import net.element.elementsmod.item.custom.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
