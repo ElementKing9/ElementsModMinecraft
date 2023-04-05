@@ -65,10 +65,12 @@ public class AspectOfTheEndItem extends SwordItem {
 
         player.getItemCooldownManager().set(this, 120);
 
-        //check if the block that is targeted and the block above it is an air block, if yes, teleport the player to it
-        if(hitResult.getType() == Type.MISS && world.getBlockState(hitResult.getBlockPos().up(1)).isAir()) {
+        //check if the block above the one that is targeted and the block that is 2 blocks above the targeted block are air blocks. 
+        //If yes, teleport the player to the block above the targeted block.
+        if(world.getBlockState(hitResult.getBlockPos().up(1)).isAir() && 
+           world.getBlockState(hitResult.getBlockPos().up(2)).isAir()) {
 
-            player.teleport(hitResult.getPos().getX(), hitResult.getPos().getY(), hitResult.getPos().getZ());
+            player.teleport(hitResult.getBlockPos().getX(), hitResult.getBlockPos().getY() + 1, hitResult.getBlockPos().getZ());
             return TypedActionResult.success(player.getStackInHand(hand));
 
         }
