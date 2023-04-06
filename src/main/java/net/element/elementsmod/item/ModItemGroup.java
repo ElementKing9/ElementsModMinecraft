@@ -6,12 +6,13 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-public class ModItemsGroup {
+public class ModItemGroup {
 
-    private static final ItemGroup ELEMENTSMODITEMGROUP = FabricItemGroup.builder(new Identifier(ElementsMod.MOD_ID, "Elements Mod Group"))
+    public static final ItemGroup ELEMENTSMODITEMGROUP = FabricItemGroup.builder(new Identifier(ElementsMod.MOD_ID, "Elements Mod Group"))
             .icon(() -> new ItemStack(ModItems.ASPECT_OF_THE_END))
             .entries((context, entries) -> {
                 entries.add(ModItems.ASPECT_OF_THE_END);
+                entries.add(ModItems.ENDER_INGOT);
             })
             .build();
 
