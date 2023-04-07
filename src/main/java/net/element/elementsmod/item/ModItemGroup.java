@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 public class ModItemGroup {
 
     public static final ItemGroup ELEMENTSMODITEMGROUP = FabricItemGroup.builder(new Identifier(ElementsMod.MOD_ID, "elementsmodgroup"))
-            .displayName(Text.translatable("Elements Mod"))
+            .displayName(Text.translatable("elements_mod_group"))
             .icon(() -> new ItemStack(ModItems.ASPECT_OF_THE_END))
             .entries((context, entries) -> {
                 //ADD EVERY ITEM HERE

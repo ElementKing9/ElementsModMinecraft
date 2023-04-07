@@ -37,7 +37,7 @@ public class AspectOfTheEndItem extends SwordItem {
         int z = blockPos.getZ();
 
         //teleporting the player one block above the block's location as otherwise the player ends up inside the block
-        context.getPlayer().teleport(x, y+1 ,z);
+        context.getPlayer().teleport(x+0.5, y+1 ,z+0.5);
 
         context.getPlayer().getItemCooldownManager().set(this, 50);
 
@@ -69,7 +69,7 @@ public class AspectOfTheEndItem extends SwordItem {
         if(world.getBlockState(hitResult.getBlockPos().up(1)).isAir() && 
            world.getBlockState(hitResult.getBlockPos().up(2)).isAir()) {
 
-            player.teleport(hitResult.getBlockPos().getX(), hitResult.getBlockPos().getY() + 1, hitResult.getBlockPos().getZ());
+            player.teleport(hitResult.getBlockPos().getX()+0.5, hitResult.getBlockPos().getY() + 1, hitResult.getBlockPos().getZ()+0.5);
             return TypedActionResult.success(player.getStackInHand(hand));
 
         }
