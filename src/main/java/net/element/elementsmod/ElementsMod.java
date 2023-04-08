@@ -1,5 +1,6 @@
 package net.element.elementsmod;
 
+import net.element.elementsmod.block.ModBlocks;
 import net.element.elementsmod.item.ModItemGroup;
 import net.element.elementsmod.item.ModItems;
 
@@ -20,5 +21,6 @@ public class ElementsMod implements ModInitializer {
 			content.add(ModItems.ENDER_INGOT);
 		});
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }
