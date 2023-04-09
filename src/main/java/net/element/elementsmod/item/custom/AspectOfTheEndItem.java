@@ -30,17 +30,6 @@ public class AspectOfTheEndItem extends SwordItem {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(context.getPlayer().isSpectator() || context.getWorld().isClient()) return ActionResult.PASS;
-
-        BlockPos blockPos = context.getBlockPos();
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-
-        //teleporting the player one block above the block's location as otherwise the player ends up inside the block
-        context.getPlayer().teleport(x+0.5, y+1 ,z+0.5);
-
-        context.getPlayer().getItemCooldownManager().set(this, 50);
-
         return ActionResult.SUCCESS;
     }
 
@@ -66,7 +55,7 @@ public class AspectOfTheEndItem extends SwordItem {
 
         //check if the block above the one that is targeted and the block that is 2 blocks above the targeted block are air blocks. 
         //If yes, teleport the player to the block above the targeted block.
-        if(world.getBlockState(hitResult.getBlockPos().up(1)).isAir() && 
+        if(world.getBlockState(hitResult.getBlockPos().up(1)).isAir() &&
            world.getBlockState(hitResult.getBlockPos().up(2)).isAir()) {
 
             player.teleport(hitResult.getBlockPos().getX()+0.5, hitResult.getBlockPos().getY() + 1, hitResult.getBlockPos().getZ()+0.5);
