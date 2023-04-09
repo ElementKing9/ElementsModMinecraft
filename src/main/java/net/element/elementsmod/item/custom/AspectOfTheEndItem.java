@@ -7,15 +7,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
@@ -25,12 +22,6 @@ import net.minecraft.world.World;
 public class AspectOfTheEndItem extends SwordItem {
     public AspectOfTheEndItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
-    }
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        if(context.getPlayer().isSpectator() || context.getWorld().isClient()) return ActionResult.PASS;
-        return ActionResult.SUCCESS;
     }
 
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
@@ -60,6 +51,7 @@ public class AspectOfTheEndItem extends SwordItem {
 
             player.teleport(hitResult.getBlockPos().getX()+0.5, hitResult.getBlockPos().getY() + 1, hitResult.getBlockPos().getZ()+0.5);
             return TypedActionResult.success(player.getStackInHand(hand));
+
 
         }
         else return TypedActionResult.pass(player.getStackInHand(hand));
